@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			// 防抖
+			function debounce(fn, wait) {   
+				//用来记录当前执行函数的状态
+			    var timeout = null;  
+			   
+			    return function() {        
+			        if(timeout !== null) {
+			        	//清除正在执行的函数
+			    		clearTimeout(timeout);	
+			        }
+			        timeout = setTimeout(fn, wait);    
+			    }
+			}
+			
+			// 处理函数
+			function handle() {    
+			    console.log(document.body.scrollTop || document.documentElement.scrollTop); 
+			}
+			// 滚动事件
+			document.addEventListener('scroll', debounce(handle, 500));
+						
+		</script>
+	</head>
+	<body style="height: 2000px;">
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload=function(){
+				
+				function defounce(fn,wait){
+					var timer=null;
+					
+					return function() {
+						if(timer!==null){
+							clearTimeout(timer)
+						}
+						timer=setTimeout(fn,wait)
+					}
+				}
+				
+				function func(){
+					console.log("输入完毕")
+				}
+				
+				document.getElementsByTagName("input")[0].addEventListener("input",defounce(func,1000))
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" />
+	</body>
+</html>
